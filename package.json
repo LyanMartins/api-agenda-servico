@@ -1,0 +1,28 @@
+{
+  "name": "agenda-servico",
+  "version": "1.0.0",
+  "description": "API agenda servico",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LyanMartins/api-agenda-servico.git"
+  },
+  "keywords": [
+    "agenda",
+    "servico"
+  ],
+  "author": "Lyan Martins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LyanMartins/api-agenda-servico/issues"
+  },
+  "homepage": "https://github.com/LyanMartins/api-agenda-servico#readme"
+}
