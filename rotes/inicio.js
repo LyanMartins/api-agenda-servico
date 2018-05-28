@@ -1,4 +1,6 @@
 exports.getIndex = (req,res) =>{
     console.log("entrou aqui");
-    res.send = {"mensagem":"API Agenda Servico"};
+    var obj = {mensagem:"API Agenda Servico"}
+    res.send(JSON.stringify(obj));
+    
 }

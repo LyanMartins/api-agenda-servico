@@ -4,8 +4,10 @@
   "description": "API agenda servico",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "nodemon": "^1.17.5"
   },
   "devDependencies": {},
   "scripts": {
