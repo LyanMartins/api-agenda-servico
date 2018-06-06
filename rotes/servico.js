@@ -17,6 +17,7 @@ exports.getServico = (req,res)=>{
     })
 }
 exports.insereServico = (req,res) =>{
+    res.set('Content-Type', 'application/json');
     var nomeServico = req.body.nomeServico;
     var descricao = req.body.descricao;
     if(!nomeServico){
@@ -41,6 +42,7 @@ exports.insereServico = (req,res) =>{
     })
 }
 exports.deletaServico = (req,res) =>{
+    res.set('Content-Type', 'application/json');
     console.log(req.url)
     var result = url.parse(req.url,true);
     var param = result.query
@@ -58,6 +60,7 @@ exports.deletaServico = (req,res) =>{
 }
 exports.atualizarServico = (req,res) =>{
     try{
+        res.set('Content-Type', 'application/json');
         var id = req.body.idServico;
         var nomeServico = req.body.nomeServico;
         var descricao = req.body.descricao;
@@ -74,9 +77,6 @@ exports.atualizarServico = (req,res) =>{
                     var obj = {mensagem:"Erro ao consultar servico"}
                     res.send(obj);
                 }
-                var reqe = JSON.stringify(result,1,);
-                var reqeS = JSON.parse(reqe,1,1);
-                var xx = {mensagem:"xx"}
                 for(var i in result){
                     var resultado = result[i].conta;
                 }
