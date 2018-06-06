@@ -5,8 +5,7 @@ const bodyParser = require("body-parser");
 const url = require("url");
 const app = express();
 
-app.use(bodyParser.json())
-
+app.use(bodyParser.json());
 app.get('/',inicio.getIndex);
 app.get('/servico', servico.getServico );
 app.post('/insere-servico', servico.insereServico);

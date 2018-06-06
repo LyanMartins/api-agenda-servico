@@ -9,6 +9,7 @@ con.connect;
 exports.getServico = (req,res)=>{
     con.query('select * from servico', function(error,result,fields){
         if (error) throw error;
+        res.set('Content-Type', 'application/json');
         var obj = JSON.stringify(result);
         console.log(obj);
         console.log(result);
@@ -73,12 +74,29 @@ exports.atualizarServico = (req,res) =>{
                     var obj = {mensagem:"Erro ao consultar servico"}
                     res.send(obj);
                 }
-                console.log(result);
-                var resultado= JSON.stringify(result);
-                var resu = resultado.toString();
-                var r = JSON.parse(resu);
-                console.log(r.conta);
-                res.send(resu);
+                var reqe = JSON.stringify(result,1,);
+                var reqeS = JSON.parse(reqe,1,1);
+                var xx = {mensagem:"xx"}
+                for(var i in result){
+                    var resultado = result[i].conta;
+                }
+                if (resultado > 0){
+                    console.log("Resultado Positivo - Fazer Update");
+                    var sql = "UPDATE servico SET nomeServico='"+nomeServico+"',descricao='"+descricao+"' WHERE id = "+id+""
+                    console.log(sql);
+                    con.query(sql,function(error,result,fields){
+                    if(error){
+                        var obj = {mensagem:"Erro ao atualizar servico!"}
+                        res.send(obj);
+                    }else{
+                        var obj = {mensagem:"Atualizado com sucesso!"}
+                        res.send(obj);
+                    }
+                    })
+                }else{
+                    var obj = {mensagem:"Id do servico invalido!"}
+                    res.send(obj);
+                }
             })
         }
         var nomeServico = req.body.nomeServico;
